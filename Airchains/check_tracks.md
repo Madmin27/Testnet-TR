@@ -15,7 +15,7 @@ içerisine kaydediniz
     # Log dosyasını kontrol eder ve son 10 satırda 3 kere belirtilen hata satırı varsa, servisi yeniden başlatır
     # tail -f check_tracks.log
     
-    log_command="journalctl -u tracksd -n 10 --no-pager | grep 'ERR Error in SubmitPod' | wc -l' | wc -l"
+    log_command="journalctl -u tracksd -n 10 --no-pager | grep 'ERR Error in SubmitPod' | wc -l"
     
     # Logları kontrol et
     log_count=$(eval $log_command)
