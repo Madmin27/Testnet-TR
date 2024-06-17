@@ -27,7 +27,7 @@ içerisine kaydediniz
         restart_command="systemctl restart tracksd"
         eval $restart_command
     else
-        echo "Hata sayısı $log_count, servis yeniden başlatılmıyor."
+        echo "Hata sayısı $log_count, servis pas."
     fi
 
 çalışma izni veriniz
