@@ -40,4 +40,5 @@ içerisine kaydediniz
 
 bunu
 
-    * */10 * * * bash /root/check_tracks.sh >> /root/check_tracks.log 2>&1
+    */10 * * * * bash /root/check_tracks.sh >> /root/check_tracks.log 2>&1
+
