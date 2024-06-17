@@ -1,5 +1,5 @@
-Burada check_tracks.sh adında bir dosya oluşturak, tracks loglarını kontrol edecek, 
-son 10 satırda 3 defa "ERR Error in SubmitPod" ifadesi varsa, servisi yeniden başlattıracak ve bunları log olarak check_tracks.log içerisine yazdıracağız
+Burada check_tracks.sh adında bir dosya oluştaracak, tracks loglarını kontrol edecek, 
+son 10 satırda 3 defa "ERR Error in SubmitPod" ifadesi varsa, servisi yeniden başlattıracak ve bunları log olarak check_tracks.log içerisine yazdıracağız.
 
 aşağıdaki komutları 
     
