@@ -10,17 +10,18 @@ içerisine kaydediniz
     #!/bin/bash
     
     # chmod +x check_tracks.sh
+    # /root/check_tracks.sh >> /root/check_tracks.log 2>&1
     # * */10 * * * bash /root/check_tracks.sh >> /root/check_tracks.log 2>&1
     # Log dosyasını kontrol eder ve son 10 satırda 3 kere belirtilen hata satırı varsa, servisi yeniden başlatır
-    # Logları kontrol etmek için komut
+    # tail -f check_tracks.log
     
-    log_command="journalctl -u tracksd -n 10 --no-pager | grep 'ERR Error in SubmitPod' | wc -l"
+    log_command="journalctl -u tracksd -n 10 --no-pager | grep 'ERR Error in SubmitPod' | wc -l' | wc -l"
     
     # Logları kontrol et
     log_count=$(eval $log_command)
     
     # Hata sayısı kontrolü
-    if [ $log_count -gt 3 ]; then
+    if [ $log_count -ge 3 ]; then
         echo "Hata sayısı $log_count, servis yeniden başlatılıyor..."
         # Servisi yeniden başlatma komutu
         restart_command="systemctl restart tracksd"
