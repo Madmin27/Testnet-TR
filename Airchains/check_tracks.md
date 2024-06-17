@@ -34,11 +34,14 @@ içerisine kaydediniz
 
     chmod +x check_tracks.sh
 
-10 dk da bir kontrol etmesi için crontab içerisinde en alta kaydediniz
+
+Aşağıdaki komutla crontab içerisine giriyoruz
 
     crontab -e
 
-bunu
+10 dk da bir kontrol etmesi için crontab içerisinde en alta, alttaki satırı kaydediniz
 
     */10 * * * * bash /root/check_tracks.sh >> /root/check_tracks.log 2>&1
+CTRL + X
+
 
