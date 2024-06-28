@@ -6,7 +6,6 @@ aşağıdaki komutları
     nano /root/check_tracks.sh 
 içerisine kaydediniz
 
-    bash
     #!/bin/bash
     
     # chmod +x check_tracks.sh
@@ -15,18 +14,18 @@ içerisine kaydediniz
     # Log dosyasını kontrol eder ve son 10 satırda 3 kere belirtilen hata satırı varsa, servisi yeniden başlatır
     # tail -f check_tracks.log
     
-    log_command="journalctl -u tracksd -n 5 --no-pager | grep 'ERR Error in SubmitPod' | wc -l"
+    
+    log_command="journalctl -u tracksd -n 10 --no-pager | grep 'ERR Error in SubmitPod' | wc -l"
     
     log_count=$(eval $log_command)
-    
-    if [ $log_count -ge 5 ]; then
+    echo "Hata sayısı $log_count  "
+    if [ $log_count -ge 3 ]; then
         echo "Hata sayısı $log_count, servis yeniden başlatılıyor..."
-        # Servisi yeniden başlatma komutu
-        restart_command="systemctl stop tracksd && ./tracks rollback && ./tracks rollback && ./tracks rollback && systemctl restart tracksd"
+        restart_command="systemctl stop tracksd && /root/./tracks rollback && /root/./tracks rollback && /root/./tracks rollback && systemctl restart tracksd"
         eval $restart_command
     else
         echo "Hata sayısı $log_count, servis pas"
-    fi
+fi
 
 çalışma izni veriniz
 
